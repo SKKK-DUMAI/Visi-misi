@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografis Evaluasi Survei Sosialisasi Visi & Misi Baru - Tahap Awareness</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#F0F5FF',
+                            100: '#E0EAFF',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            800: '#1E40AF',
+                            900: '#1E3A8A',
+                            dark: '#0F172A',
+                        },
+                        vibrant: {
+                            teal: '#0D9488',
+                            amber: '#F59E0B',
+                            coral: '#F97316',
+                            rose: '#E11D48',
+                            emerald: '#10B981',
+                            indigo: '#6366F1'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 380px;
+            max-height: 460px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 420px;
+            }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-800 to-vibrant-teal flex items-center justify-center text-white font-bold text-xl shadow-md">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-slate-900 text-sm sm:text-base leading-tight">YKKI — Survei Sosialisasi Visi & Misi Baru</h1>
+                    <p class="text-xs text-brand-600 font-semibold">Tahap Awareness (N = 358 Responden)</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-6 text-xs font-semibold text-slate-600">
+                <a href="#ringkasan" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition">Ringkasan</a>
+                <a href="#hasil-awareness" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition">Hasil Tahap Awareness</a>
+                <a href="#cabang" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition">Partisipasi Cabang</a>
+                <a href="#suara-lapangan" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition">Aspirasi Lapangan</a>
+                <a href="#tindak-lanjut" class="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-brand-600 transition">Tindak Lanjut</a>
+            </nav>
+
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-800 border border-brand-200">
+                    <i class="fa-solid fa-eye mr-1.5 text-[10px]"></i> Fase Awareness
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section id="ringkasan" class="relative bg-gradient-to-br from-brand-900 via-brand-800 to-slate-900 text-white py-12 lg:py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mb-10">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-white/10 text-brand-100 text-xs font-semibold backdrop-blur-sm mb-4 border border-white/10">
+                    <i class="fa-solid fa-layer-group text-vibrant-amber"></i>
+                    <span>Yayasan Kalam Kudus Indonesia</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white mb-4">
+                    Laporan Hasil Survei Sosialisasi Visi & Misi Baru
+                </h2>
+                <div class="inline-block bg-vibrant-amber/20 text-vibrant-amber text-xs font-extrabold px-3 py-1 rounded-md mb-3 border border-vibrant-amber/30 uppercase tracking-wide">
+                    Evaluasi Tahap 1: Kesadaran & Penerimaan Awal (Tahap Awareness)
+                </div>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    Ringkasan sederhana dan langsung mengenai tingkat pemahaman, penerimaan emosional, sebaran partisipasi 29 cabang nasional, serta aspirasi konkret dari para pendidik di sekolah pasca-sosialisasi awal VMN baru.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 hover:bg-white/15 transition shadow-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Total Responden Aktif</span>
+                        <div class="w-9 h-9 rounded-lg bg-vibrant-teal/20 flex items-center justify-center text-vibrant-teal text-lg">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">358</div>
+                    <p class="text-xs text-slate-300">
+                        Dominasi Guru (<span class="text-vibrant-amber font-bold">79,3%</span>) & Staf Operasional (<span class="text-vibrant-teal font-bold">9,8%</span>)
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 hover:bg-white/15 transition shadow-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Dukungan Emosional & Visi</span>
+                        <div class="w-9 h-9 rounded-lg bg-vibrant-amber/20 flex items-center justify-center text-vibrant-amber text-lg">
+                            <i class="fa-solid fa-heart-circle-check"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-vibrant-amber mb-1">3,51 <span class="text-lg font-normal text-slate-300">/ 4,00</span></div>
+                    <p class="text-xs text-slate-300">
+                        Tingkat persetujuan & optimisme sangat tinggi terhadap arah VMN baru
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 hover:bg-white/15 transition shadow-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Cabang Mengirimkan Data</span>
+                        <div class="w-9 h-9 rounded-lg bg-vibrant-indigo/20 flex items-center justify-center text-vibrant-indigo text-lg">
+                            <i class="fa-solid fa-building-circle-check"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-white mb-1">13 <span class="text-lg font-normal text-slate-300">/ 29</span></div>
+                    <p class="text-xs text-slate-300">
+                        Sebanyak <span class="text-vibrant-teal font-bold">13 cabang</span> telah memotret kesiapan guru & staf
+                    </p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 hover:bg-white/15 transition shadow-lg">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Cabang Belum Merespon</span>
+                        <div class="w-9 h-9 rounded-lg bg-vibrant-rose/20 flex items-center justify-center text-vibrant-rose text-lg">
+                            <i class="fa-solid fa-building-circle-exclamation"></i>
+                        </div>
+                    </div>
+                    <div class="text-3xl sm:text-4xl font-extrabold text-vibrant-rose mb-1">55,2%</div>
+                    <p class="text-xs text-slate-300">
+                        <span class="font-bold text-white">16 dari 29 Cabang</span> belum memasukkan data (0 Responden)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+        <section id="hasil-awareness" class="space-y-6">
+            <div class="border-l-4 border-brand-600 pl-4 py-1">
+                <div class="text-xs font-bold text-brand-600 uppercase tracking-wider mb-0.5">Analisis Utama</div>
+                <h3 class="text-2xl font-bold text-slate-900">1. Hasil Evaluasi Tahap Awareness (Tingkat Pemahaman & Kesiapan)</h3>
+                <p class="text-sm text-slate-600">Simpulan jelas dari seluruh aspek yang diukur pada skala 1.00 (Sangat Rendah) hingga 4.00 (Sangat Tinggi)</p>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-2xl p-5 text-slate-800 text-sm leading-relaxed shadow-sm">
+                <div class="flex items-center space-x-2 font-bold text-brand-800 mb-2 text-base">
+                    <i class="fa-solid fa-circle-info text-vibrant-teal text-lg"></i>
+                    <span>Kesimpulan Sederhana Hasil Tahap Awareness:</span>
+                </div>
+                <p class="leading-relaxed text-slate-700">
+                    Pada <strong>Tahap Awareness (Pengecekan Kesadaran Awal)</strong> ini, mayoritas pendidik dan staf sudah <strong>sangat paham makna esensi dan sangat setuju dengan arah Visi-Misi Baru</strong> (skor tinggi 3.44 - 3.51). Namun, karena dokumen ini baru dirilis, mereka <strong>belum menghafal teks kaku kata-per-kata</strong> (skor 2.71) dan masih membutuhkan <strong>kejelasan panduan teknis operasional di kelas</strong>. Hal ini sangat wajar untuk tahap awal sosialisasi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-8 bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2">
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">Peta Skor Pemahaman & Kesiapan Responden</h4>
+                                <p class="text-xs text-slate-500">Skor rata-rata per indikator (Skala 1.00 = Sangat Rendah, 4.00 = Sangat Tinggi)</p>
+                            </div>
+                            <span class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-lg text-xs font-bold border border-emerald-200 self-start sm:self-auto">
+                                <i class="fa-solid fa-check mr-1"></i> Rata-rata Keseluruhan: 3.39
+                            </span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chartIndikator"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                        <div class="p-3 bg-teal-50/70 rounded-xl border border-teal-100">
+                            <span class="font-bold text-vibrant-teal block mb-1"><i class="fa-solid fa-thumbs-up mr-1"></i> Paling Tinggi (3.51)</span>
+                            <span class="text-slate-600">Responden sangat yakin VMN baru sesuai tuntutan zaman & membawa kemajuan.</span>
+                        </div>
+                        <div class="p-3 bg-blue-50/70 rounded-xl border border-blue-100">
+                            <span class="font-bold text-brand-600 block mb-1"><i class="fa-solid fa-heart mr-1"></i> Pemaknaan Nilai (3.47)</span>
+                            <span class="text-slate-600">Nilai Inti (Kasih, Disiplin, Berdaya) dipahami dengan sangat baik dan relevan.</span>
+                        </div>
+                        <div class="p-3 bg-rose-50/70 rounded-xl border border-rose-100">
+                            <span class="font-bold text-vibrant-rose block mb-1"><i class="fa-solid fa-pen-ruler mr-1"></i> Area Dampingan (2.71)</span>
+                            <span class="text-slate-600">Hafalan teks kaku masih rendah, butuh internalisasi alami bukan membebankan hafalan.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 space-y-6 flex flex-col justify-between">
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Siapa Saja yang Mengisi Survei?</h4>
+                        <p class="text-xs text-slate-500 mb-3">Komposisi jabatan 358 responden</p>
+                        <div class="chart-container" style="height: 180px;">
+                            <canvas id="chartPeran"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-5">
+                        <h4 class="font-bold text-slate-900 text-sm mb-1">Sebaran Jenjang Sekolah Responden</h4>
+                        <p class="text-xs text-slate-500 mb-3">Partisipasi berdasarkan tingkat unit pengajaran</p>
+                        <div class="chart-container" style="height: 180px;">
+                            <canvas id="chartUnit"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cabang" class="space-y-6">
+            <div class="border-l-4 border-vibrant-rose pl-4 py-1">
+                <div class="text-xs font-bold text-vibrant-rose uppercase tracking-wider mb-0.5">Pemetaan Nasional</div>
+                <h3 class="text-2xl font-bold text-slate-900">2. Sebaran Partisipasi Cabang Nasional (Tahap Awareness)</h3>
+                <p class="text-sm text-slate-600">Potret keterisian data dari total 29 Cabang Yayasan Kalam Kudus Indonesia</p>
+            </div>
+
+            <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-rose-950 text-sm leading-relaxed shadow-sm">
+                <div class="flex items-center space-x-2 font-bold text-vibrant-rose mb-2 text-base">
+                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                    <span>Catatan Penting Tim Sosialisasi: 16 Cabang Belum Mengisi (0 Responden)</span>
+                </div>
+                <p class="leading-relaxed">
+                    Data survei *Tahap Awareness* ini berhasil menghimpun suara dari <strong>358 guru dan staf di 13 cabang</strong>. Namun, terdapat <strong>16 dari 29 cabang (55,2%) yang belum mengirimkan isian sama sekali</strong> (termasuk beberapa cabang kota besar seperti Jakarta, Medan, Bandung, Makassar, Pekanbaru, Pontianak, dan Malang). Diperlukan dorongan pimpinan agar sosialisasi dan pemetaan kesiapan di 16 cabang ini dapat segera menyusul.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base mb-1">Perbandingan Keterisian Data Cabang</h4>
+                        <p class="text-xs text-slate-500 mb-4">Proporsi cabang yang sudah vs belum mengirimkan respon</p>
+                        <div class="chart-container" style="height: 260px;">
+                            <canvas id="chartStatusCabang"></canvas>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-100 text-xs space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700"><i class="fa-solid fa-circle text-emerald-500 mr-1.5"></i>Cabang Berpartisipasi</span>
+                            <span class="font-bold text-slate-900">13 Cabang (358 Respon)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-semibold text-slate-700"><i class="fa-solid fa-circle text-rose-500 mr-1.5"></i>Cabang belum mengisi</span>
+                            <span class="font-bold text-vibrant-rose">16 Cabang (0 Respon)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
+                    <div>
+                        <h4 class="font-bold text-slate-900 text-base mb-2">Daftar 16 Cabang yang Perlu Didorong (0 Responden)</h4>
+                        <p class="text-xs text-slate-500 mb-4">Daftar cabang yang membutuhkan tindak lanjut sosialisasi susulan:</p>
+                        
+                        <div class="grid grid-cols-2 sm:grid-cols-2 gap-2 text-xs font-medium text-slate-700 max-h-[220px] overflow-y-auto custom-scrollbar pr-1">
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Ambon</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Bandung</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Bengkalis</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Bone</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Jakarta</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Kabanjahe</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Makassar</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Malang</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Medan</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Merauke</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Padang</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Pekanbaru</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Pontianak</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Selat Panjang</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Sibolga</span>
+                            </div>
+                            <div class="p-2 bg-rose-50/60 rounded-lg border border-rose-100 flex items-center space-x-2">
+                                <i class="fa-solid fa-building-circle-xmark text-vibrant-rose"></i>
+                                <span>Timika</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500">
+                        <span><i class="fa-solid fa-info-circle text-brand-600 mr-1"></i> Data 358 responden yang ada mewakili 13 cabang aktif lainnya (Pematangsiantar, Yogya, Solo, Bali, Surabaya, dll).</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="suara-lapangan" class="space-y-6">
+            <div class="border-l-4 border-vibrant-amber pl-4 py-1">
+                <div class="text-xs font-bold text-vibrant-amber uppercase tracking-wider mb-0.5">Suara Guru & Staf</div>
+                <h3 class="text-2xl font-bold text-slate-900">3. Inventarisasi Pertanyaan & Keraguan Lapangan</h3>
+                <p class="text-sm text-slate-600">Bahan konkret untuk menjawab kebutuhan guru pada sosialisasi tahap berikutnya (Tahap Understanding & Internalization)</p>
+            </div>
+
+            <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                <button onclick="filterQuestions('all')" id="qbtn-all" class="px-4 py-2 rounded-xl bg-brand-800 text-white shadow-sm transition">Semua Kategori</button>
+                <button onclick="filterQuestions('metodologi')" id="qbtn-metodologi" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition"><i class="fa-solid fa-book-bookmark text-brand-600 mr-1.5"></i> Penerapan di Kelas</button>
+                <button onclick="filterQuestions('asesmen')" id="qbtn-asesmen" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition"><i class="fa-solid fa-clipboard-check text-vibrant-teal mr-1.5"></i> Penilaian & KPI</button>
+                <button onclick="filterQuestions('ekosistem')" id="qbtn-ekosistem" class="px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition"><i class="fa-solid fa-people-roof text-vibrant-amber mr-1.5"></i> Keteladanan & Rumah</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="questionsGrid">
+            </div>
+
+            <div class="bg-gradient-to-r from-slate-900 via-brand-900 to-slate-900 rounded-2xl p-6 text-white shadow-xl border border-slate-800 relative overflow-hidden">
+                <div class="relative z-10 space-y-3">
+                    <div class="flex items-center space-x-2 text-vibrant-amber text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Aspirasi Tata Kelola & Kepemimpinan (Ungkapan Responden)</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-200 italic leading-relaxed bg-white/5 p-4 rounded-xl border border-white/10 font-mono">
+                        "Kekhawatiran utama kami adalah implementasi visi-misi jangan sampai berhenti di slogan, melainkan benar-benar hidup dalam kepemimpinan sehari-hari, kesetaraan perlakuan, keteladanan pimpinan di lokasi, serta lingkungan kerja yang penuh kasih..."
+                    </p>
+                    <div class="flex items-center justify-between text-xs text-slate-400 pt-1">
+                        <span class="font-medium text-vibrant-amber"><i class="fa-solid fa-user-pen mr-1"></i> Suara Guru Lapangan</span>
+                        <span class="italic">Catatan Objektif Survei Awareness</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tindak-lanjut" class="space-y-6">
+            <div class="border-l-4 border-vibrant-teal pl-4 py-1">
+                <div class="text-xs font-bold text-vibrant-teal uppercase tracking-wider mb-0.5">Rekomendasi Langkah</div>
+                <h3 class="text-2xl font-bold text-slate-900">4. Usulan Kebutuhan Nyata & Tahapan Selanjutnya</h3>
+                <p class="text-sm text-slate-600">Daftar dukungan konkret yang diminta guru untuk melangkah dari Tahap Awareness menuju Tahap Internalisasi</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-teal-50 text-vibrant-teal flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-file-code"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Contoh Modul Ajar Konkret</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Guru meminta contoh RPP/Modul Ajar percontohan yang memperlihatkan bagaimana nilai Kasih, Disiplin, dan Berdaya diintegrasikan ke mata pelajaran nyata (Matematika, PJOK, IPA, dll).
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-vibrant-teal uppercase tracking-wider">
+                        Kebutuhan Perangkat Ajar
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-amber-50 text-vibrant-amber flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Buku Saku Perilaku (*Behavioral Guide*)</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Panduan praktis berupa contoh tindakan sehari-hari yang mencerminkan nilai Kasih, Disiplin, dan Berdaya untuk guru, staf operasional, maupun siswa.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-vibrant-amber uppercase tracking-wider">
+                        Panduan Perilaku Sehari-Hari
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Sosialisasi Dialogis via *Morning Devotion*</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Penguatan nilai dilakukan secara alami melalui renungan pagi (*morning devotion*) dan diskusi interaktif, bukan dengan memaksa hafalan teks yang kaku.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-brand-600 uppercase tracking-wider">
+                        Metode Internalisasi
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 text-vibrant-indigo flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Wadah Berbagi Antarcabang</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Forum komunikasi antarguru lintas cabang (*Community of Practice*) untuk saling berbagi praktik pengajaran yang sukses menerapkan VMN di kelas.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-vibrant-indigo uppercase tracking-wider">
+                        Kolaborasi Antarsekolah
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-vibrant-emerald flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Pendampingan Suportif Pimpinan</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Kunjungan tim yayasan dan pimpinan diharapkan lebih berfokus mendampingi dan mendengar kendala riil guru, bukan inspeksi administratif.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-vibrant-emerald uppercase tracking-wider">
+                        Gaya Pendampingan
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 hover:border-vibrant-teal transition flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-vibrant-rose flex items-center justify-center text-xl font-bold">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base">Langkah Menuju Tahap Internalisasi</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Setelah **Tahap Awareness** selesai (termasuk mendorong 16 cabang susulan), langkah berikutnya adalah menyusun rubrik karakter dan instrumen pembelajaran sederhana.
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-vibrant-rose uppercase tracking-wider">
+                        Rencana Tahap Berikutnya
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-brand-800 flex items-center justify-center text-white font-bold">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+                <div>
+                    <p class="font-bold text-white text-sm">Yayasan Kalam Kudus Indonesia (YKKI)</p>
+                    <p class="text-[11px] text-slate-500">Laporan Hasil Survei Sosialisasi Visi &amp; Misi Baru — Tahap Awareness</p>
+                </div>
+            </div>
+            <div class="text-center sm:text-right text-slate-500">
+                <p>Basis Data: 358 Responden Aktif &amp; 29 Cabang Nasional</p>
+                <p class="text-[10px] mt-0.5">Disajikan Sebagai Temuan Objektif Lapangan (*As-Is Awareness Report*)</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function wrapLabel(str, maxLen = 18) {
+            if (typeof str !== 'string') return str;
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > maxLen) {
+                    if (currentLine) lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const standardTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        const rawIndikatorLabels = [
+            '1. Relevansi Tuntutan Zaman',
+            '2. Optimisme Kemajuan Lembaga',
+            '3. Makna Nilai (Kasih, Disiplin, Berdaya)',
+            '4. Relevansi dengan Kondisi Unit',
+            '5. Pemahaman Arah Visi Baru',
+            '6. Penguatan Panggilan Pribadi',
+            '7. Peran Misi Mendukung Visi',
+            '8. Kesiapan Peran Harian',
+            '9. Kesiapan Sistem & Tim Unit',
+            '10. Hafalan Teks Redaksional'
+        ];
+        const wrappedIndikatorLabels = rawIndikatorLabels.map(l => wrapLabel(l, 20));
+        const indikatorScores = [3.51, 3.51, 3.47, 3.46, 3.44, 3.44, 3.39, 3.34, 3.32, 2.71];
+
+        const rawPeranLabels = ['Guru', 'Staf Operasional', 'Kepala Sekolah', 'Lainnya / Pimpinan'];
+        const wrappedPeranLabels = rawPeranLabels.map(l => wrapLabel(l, 16));
+        const peranData = [79.3, 9.8, 6.4, 4.5];
+
+        const rawUnitLabels = ['SD', 'SMP', 'KB / TK', 'SMA / SMK / Lainnya'];
+        const wrappedUnitLabels = rawUnitLabels.map(l => wrapLabel(l, 16));
+        const unitData = [58.4, 18.7, 13.7, 9.2];
+
+        const questionsData = [
+            {
+                cat: 'metodologi',
+                title: 'Integrasi di Mapel Eksakta (Matematika)',
+                role: 'Guru SMP',
+                q: '“Bagaimana cara mengintegrasikan nilai-nilai VMN ke dalam mata pelajaran eksakta seperti Matematika agar tidak terkesan dipaksakan?”'
+            },
+            {
+                cat: 'metodologi',
+                title: 'Penerapan di Kelas Olahraga (PJOK)',
+                role: 'Guru PJOK',
+                q: '“Bagaimana mengintegrasikan nilai VMN ke dalam pembelajaran PJOK agar tidak berfokus pada fisik saja, melainkan membentuk karakter & disiplin?”'
+            },
+            {
+                cat: 'metodologi',
+                title: 'Layanan Bimbingan Konseling (BK)',
+                role: 'Guru BK SD',
+                q: '“Bagaimana menerjemahkan VMN yang baru ke dalam program Bimbingan Konseling (BK) yang sesuai dengan kebutuhan anak SD?”'
+            },
+            {
+                cat: 'metodologi',
+                title: 'Pendidikan Anak Usia Dini (PAUD/TK)',
+                role: 'Guru KB/TK',
+                q: '“Bagaimana cara mengintegrasikan nilai-nilai ini secara sederhana, konkret, dan menyenangkan sesuai tahap anak TK?”'
+            },
+            {
+                cat: 'metodologi',
+                title: 'Kegiatan Pengenalan Sekolah (MPLS)',
+                role: 'Guru SD',
+                q: '“Bagaimana langkah mengenalkan VMN dalam kegiatan MPLS bagi anak-anak murid baru secara menarik?”'
+            },
+            {
+                cat: 'asesmen',
+                title: 'Pengukuran & Rubrik Nilai Inti',
+                role: 'Guru SMP',
+                q: '“Bagaimana indikator keberhasilan penerapan nilai Kasih, Disiplin, dan Berdaya Guna akan diukur secara nyata & adil?”'
+            },
+            {
+                cat: 'asesmen',
+                title: 'Standar Kelulusan Transformasi',
+                role: 'Kepala Sekolah SMP',
+                q: '“Bagaimana cara sekolah memastikan bahwa setiap murid yang lulus benar-benar sudah bertransformasi karakter?”'
+            },
+            {
+                cat: 'asesmen',
+                title: 'Hubungan dengan KPI / Kinerja Guru',
+                role: 'Guru SD',
+                q: '“Apakah ketercapaian nilai VMN ini nantinya akan dimasukkan ke dalam Key Performance Indicator (KPI) atau penilaian kinerja guru?”'
+            },
+            {
+                cat: 'ekosistem',
+                title: 'Beban Administrasi vs Karakter',
+                role: 'Guru SD & SMP',
+                q: '“Bagaimana menerapkannya secara konsisten saat mengajar di tengah padatnya kurikulum dan tuntutan administrasi?”'
+            },
+            {
+                cat: 'ekosistem',
+                title: 'Keteladanan Pimpinan di Sekolah',
+                role: 'Rohaniwan & Guru',
+                q: '“Apakah para pimpinan mampu menunjukkan keteladanan nyata, dan apakah nilai kasih benar-benar hidup saat ada kendala operasional?”'
+            },
+            {
+                cat: 'ekosistem',
+                title: 'Sinergi Pola Asuh Orang Tua',
+                role: 'Guru SD',
+                q: '“Bagaimana strategi membangun komunikasi agar nilai Kasih dan Disiplin yang diajarkan di kelas juga diterapkan oleh orang tua di rumah?”'
+            },
+            {
+                cat: 'ekosistem',
+                title: 'Kesinambungan Lintas Jenjang',
+                role: 'Guru SD',
+                q: '“Bagaimana menjaga agar pembentukan karakter tidak terhenti saat siswa naik jenjang (TK ke SD, SD ke SMP)?”'
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctxIndikator = document.getElementById('chartIndikator').getContext('2d');
+            new Chart(ctxIndikator, {
+                type: 'bar',
+                data: {
+                    labels: wrappedIndikatorLabels,
+                    datasets: [{
+                        label: 'Skor Rata-Rata (Skala 1.00 - 4.00)',
+                        data: indikatorScores,
+                        backgroundColor: indikatorScores.map(score => {
+                            if (score >= 3.45) return '#0D9488';
+                            if (score >= 3.30) return '#3B82F6';
+                            return '#E11D48';
+                        }),
+                        borderRadius: 6,
+                        borderSkipped: false
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: standardTooltipConfig
+                    },
+                    scales: {
+                        x: {
+                            min: 1.0,
+                            max: 4.0,
+                            grid: { color: '#F1F5F9' },
+                            ticks: { font: { size: 11 } }
+                        },
+                        y: {
+                            grid: { display: false },
+                            ticks: { font: { size: 11, weight: '600' } }
+                        }
+                    }
+                }
+            });
+
+            const ctxPeran = document.getElementById('chartPeran').getContext('2d');
+            new Chart(ctxPeran, {
+                type: 'doughnut',
+                data: {
+                    labels: wrappedPeranLabels,
+                    datasets: [{
+                        data: peranData,
+                        backgroundColor: ['#2563EB', '#0D9488', '#F59E0B', '#6366F1'],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { boxWidth: 12, font: { size: 10 } }
+                        },
+                        tooltip: standardTooltipConfig
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            const ctxUnit = document.getElementById('chartUnit').getContext('2d');
+            new Chart(ctxUnit, {
+                type: 'doughnut',
+                data: {
+                    labels: wrappedUnitLabels,
+                    datasets: [{
+                        data: unitData,
+                        backgroundColor: ['#0D9488', '#3B82F6', '#F97316', '#8B5CF6'],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: { boxWidth: 12, font: { size: 10 } }
+                        },
+                        tooltip: standardTooltipConfig
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            const ctxStatusCabang = document.getElementById('chartStatusCabang').getContext('2d');
+            new Chart(ctxStatusCabang, {
+                type: 'pie',
+                data: {
+                    labels: ['Cabang Berpartisipasi (13)', 'Cabang Belum Mengisi (16)'],
+                    datasets: [{
+                        data: [13, 16],
+                        backgroundColor: ['#10B981', '#E11D48'],
+                        borderWidth: 2,
+                        borderColor: '#FFFFFF'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { boxWidth: 12, font: { size: 11, weight: '600' } }
+                        },
+                        tooltip: standardTooltipConfig
+                    }
+                }
+            });
+
+            renderQuestions('all');
+        });
+
+        function renderQuestions(filter) {
+            const grid = document.getElementById('questionsGrid');
+            grid.innerHTML = '';
+
+            const filtered = questionsData.filter(q => {
+                if (filter === 'all') return true;
+                return q.cat === filter;
+            });
+
+            filtered.forEach(item => {
+                let catBadge = 'bg-brand-50 text-brand-800 border-brand-200';
+                let icon = 'fa-book-bookmark';
+
+                if (item.cat === 'asesmen') {
+                    catBadge = 'bg-teal-50 text-vibrant-teal border-teal-200';
+                    icon = 'fa-clipboard-check';
+                } else if (item.cat === 'ekosistem') {
+                    catBadge = 'bg-amber-50 text-amber-800 border-amber-200';
+                    icon = 'fa-people-roof';
+                }
+
+                const cardHtml = `
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 hover:border-brand-500 transition flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="px-2.5 py-1 rounded-md text-[10px] font-bold border ${catBadge} inline-flex items-center">
+                                    <i class="fa-solid ${icon} mr-1"></i> ${item.cat.toUpperCase()}
+                                </span>
+                                <span class="text-xs font-semibold text-slate-500">${item.role}</span>
+                            </div>
+                            <h5 class="font-bold text-slate-900 text-sm leading-snug">${item.title}</h5>
+                            <p class="text-xs text-slate-600 italic bg-slate-50 p-3 rounded-xl border border-slate-100 leading-relaxed">
+                                ${item.q}
+                            </p>
+                        </div>
+                        <div class="mt-3 pt-2 text-[10px] text-slate-400 font-medium flex items-center justify-between">
+                            <span><i class="fa-solid fa-comment-dots mr-1"></i> Isian Survei Awareness</span>
+                            <span class="text-brand-600 font-semibold">Bahan Sosialisasi Lanjutan</span>
+                        </div>
+                    </div>
+                `;
+                grid.innerHTML += cardHtml;
+            });
+        }
+
+        function filterQuestions(category) {
+            ['all', 'metodologi', 'asesmen', 'ekosistem'].forEach(c => {
+                const btn = document.getElementById(`qbtn-${c}`);
+                if (c === category) {
+                    btn.className = "px-4 py-2 rounded-xl bg-brand-800 text-white shadow-sm transition";
+                } else {
+                    btn.className = "px-4 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition";
+                }
+            });
+            renderQuestions(category);
+        }
+    </script>
+</body>
+</html>
